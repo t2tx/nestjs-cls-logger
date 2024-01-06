@@ -1,0 +1,5 @@
+{
+  "language": "typescript",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src"
+}
