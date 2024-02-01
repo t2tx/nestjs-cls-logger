@@ -47,6 +47,7 @@ import { NestJsClsLoggerModule } from 'nestjs-cls-logger';
 
 @Module({
   imports: [NestJsClsLoggerModule.forRoot({ tag: 'app.sample' })],
+  // imports: [NestJsClsLoggerModule.forRoot({ tag: 'app.sample', overrideConsole: true })]
   controllers: [AppController],
   providers: [AppService],
 })
@@ -104,3 +105,7 @@ npm run start:dev
 ## 1.0.0
 
 - Initial release.
+
+## 1.1.0
+
+- Option to override console

@@ -10,6 +10,7 @@ import { ConfigService } from '../../domain/services/config-service';
 export interface LogConfig {
   tag?: string;
   slackWebhookUrl?: string;
+  overrideConsole?: boolean;
 }
 
 @Global()

@@ -5,7 +5,7 @@ import { Logger } from '../../domain/logger';
 export class NestjsLoggerServiceAdapter implements LoggerService {
   public constructor(private logger: Logger) {}
 
-  public log(message: string, ...optionalParams: any[]) {
+  public log(message: any, ...optionalParams: any[]) {
     return this.logger.info(message, this.getLogData(optionalParams));
   }
 
