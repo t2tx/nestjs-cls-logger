@@ -12,11 +12,13 @@ enum LogColors {
 }
 
 export default class ConsoleTransport {
-  public static createColorize() {
+  public static createColorize(use?: boolean) {
     return new winston.transports.Console({
       format: winston.format.combine(
         winston.format.printf((log) => {
-          const color = this.mapLogLevelColor(log.level as LogLevel);
+          const color = use
+            ? this.mapLogLevelColor(log.level as LogLevel)
+            : undefined;
           const prefix = `${log.data.label ? `[${log.data.label}]` : ''}`;
           return `${this.colorize(color, prefix + '  -')} ${log.timestamp}    ${
             log.data.correlationId
@@ -36,17 +38,18 @@ export default class ConsoleTransport {
           }${
             log.data.stack ? this.colorize(color, `  - ${log.data.stack}`) : ''
           }${
-            log.data.props
-              ? `\n  - Props: ${JSON.stringify(log.data.props, null, 4)}`
-              : ''
+            log.data.props ? `  - Props: ${JSON.stringify(log.data.prop)}` : ''
           }`;
         }),
       ),
     });
   }
 
-  private static colorize(color: LogColors, message: string): string {
-    return `${color}${message}\x1b[0m`;
+  private static colorize(
+    color: LogColors | undefined,
+    message: string,
+  ): string {
+    return !!color ? `${color}${message}\x1b[0m` : message;
   }
 
   private static mapLogLevelColor(level: LogLevel): LogColors {

@@ -11,6 +11,7 @@ export interface LogConfig {
   tag?: string;
   slackWebhookUrl?: string;
   overrideConsole?: boolean;
+  useColorize?: boolean;
 }
 
 @Global()

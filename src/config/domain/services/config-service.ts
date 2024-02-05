@@ -21,6 +21,10 @@ export class ConfigService {
     return this.configService.get<string>('slackWebhookUrl');
   }
 
+  get useColorize() {
+    return this.configService.get<boolean>('useColorize');
+  }
+
   private get environment(): string {
     return this.configService.get<string>('NODE_ENV') ?? 'dev';
   }

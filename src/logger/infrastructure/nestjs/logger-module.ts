@@ -21,7 +21,9 @@ import { ContextStorageService } from '../../../context/domain/interfaces/contex
       ) => {
         const transports = [];
 
-        transports.push(ConsoleTransport.createColorize());
+        transports.push(
+          ConsoleTransport.createColorize(configService.useColorize),
+        );
 
         if (configService.isProduction) {
           if (configService.slackWebhookUrl) {
@@ -53,12 +55,15 @@ export class LoggerModule implements NestModule {
   public configure(consumer: MiddlewareConsumer): void {
     consumer
       .apply(
-        morgan(this.configService.isProduction ? 'combined' : 'dev', {
+        morgan('combined', {
           stream: {
             write: (message: string) => {
-              this.logger.debug(message, {
-                sourceClass: 'RequestLogger',
-              });
+              this.logger.debug(
+                message.substring(0, message.lastIndexOf('\n')),
+                {
+                  sourceClass: 'morgan',
+                },
+              );
             },
           },
         }),

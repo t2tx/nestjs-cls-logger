@@ -102,10 +102,15 @@ npm run start:dev
 
 ## Release Notes
 
-## 1.0.0
+## 1.1.1
 
-- Initial release.
+- Disable colorization by default
+- Remove last newline of morgan message
 
 ## 1.1.0
 
 - Option to override console
+
+## 1.0.0
+
+- Initial release.
