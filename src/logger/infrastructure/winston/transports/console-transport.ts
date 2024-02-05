@@ -19,14 +19,15 @@ export default class ConsoleTransport {
           const color = use
             ? this.mapLogLevelColor(log.level as LogLevel)
             : undefined;
+          const cyan = use ? LogColors.cyan : undefined;
           const prefix = `${log.data.label ? `[${log.data.label}]` : ''}`;
           return `${this.colorize(color, prefix + '  -')} ${log.timestamp}    ${
             log.data.correlationId
-              ? `(${this.colorize(LogColors.cyan, log.data.correlationId)})`
+              ? `(${this.colorize(cyan, log.data.correlationId)})`
               : ''
           } ${this.colorize(color, log.level.toUpperCase())} ${
             log.data.sourceClass
-              ? `${this.colorize(LogColors.cyan, `[${log.data.sourceClass}]`)}`
+              ? `${this.colorize(cyan, `[${log.data.sourceClass}]`)}`
               : ''
           } ${this.colorize(
             color,

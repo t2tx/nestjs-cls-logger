@@ -102,7 +102,7 @@ npm run start:dev
 
 ## Release Notes
 
-## 1.1.1
+## 1.1.2
 
 - Disable colorization by default
 - Remove last newline of morgan message
