@@ -1,6 +1,6 @@
 {
   "name": "nestjs-cls-logger",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "nestjs cls logger npm",
   "author": "t2tx <t2tx@icloud.com>",
   "main": "./dist/index.js",

@@ -39,7 +39,7 @@ export default class ConsoleTransport {
           }${
             log.data.stack ? this.colorize(color, `  - ${log.data.stack}`) : ''
           }${
-            log.data.props ? `  - Props: ${JSON.stringify(log.data.prop)}` : ''
+            log.data.props ? `  - Props: ${JSON.stringify(log.data.props)}` : ''
           }`;
         }),
       ),

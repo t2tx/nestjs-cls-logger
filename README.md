@@ -102,6 +102,10 @@ npm run start:dev
 
 ## Release Notes
 
+## 1.1.3
+
+- Bugfix: correct output of Props
+
 ## 1.1.2
 
 - Disable colorization by default
