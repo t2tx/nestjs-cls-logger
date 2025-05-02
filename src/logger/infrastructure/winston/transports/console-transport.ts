@@ -15,7 +15,8 @@ export default class ConsoleTransport {
   public static createColorize(use?: boolean) {
     return new winston.transports.Console({
       format: winston.format.combine(
-        winston.format.printf((log) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        winston.format.printf((log: any) => {
           const color = use
             ? this.mapLogLevelColor(log.level as LogLevel)
             : undefined;
